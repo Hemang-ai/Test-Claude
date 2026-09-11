@@ -1,0 +1,23 @@
+.contact { overflow: hidden; padding-bottom: 0; }
+.contact__glow { width: 70vmax; height: 40vmax; left: 15vmax; bottom: -22vmax; opacity: 0.7; }
+.contact__h2 { font-size: clamp(3rem, 2rem + 6vw, 7rem); }
+.contact__p { margin-top: 1.8rem; max-width: 50ch; color: var(--ink-2); font-size: var(--fs-lead); line-height: 1.4; }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2.4rem; }
+.btn {
+  align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.3rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface);
+  font-size: 0.95rem; letter-spacing: 0.02em;
+  transition: border-color 0.35s, background 0.35s, box-shadow 0.35s;
+}
+.btn:hover { border-color: var(--violet); box-shadow: 0 0 28px rgba(123,63,228,0.35); }
+.btn--primary { background: var(--violet-deep); border-color: var(--violet-deep); color: #fff; }
+.btn--primary:hover { background: var(--violet-2); border-color: var(--violet-2); }
+
+.footer { margin-top: clamp(4rem, 8vw, 7rem); border-top: 1px solid var(--line); padding: 2rem 0 2.2rem; position: relative; }
+.footer__grid { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; }
+.footer__logo { font-size: 1.6rem; color: var(--violet); text-shadow: 0 0 14px rgba(199,155,255,0.9); font-weight: 500; }
+.footer__note, .footer__copy { font-size: 0.85rem; }
+@media (max-width: 700px) {
+  .footer__grid { grid-template-columns: 1fr; gap: 0.6rem; }
+}

@@ -1,0 +1,32 @@
+.tilt {
+  position: relative;
+  border-radius: var(--radius);
+  background: var(--surface);
+  transform-style: preserve-3d;
+  isolation: isolate;
+  will-change: transform;
+}
+.tilt::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+.tilt__edge {
+  position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.4s var(--ease-out); pointer-events: none;
+}
+.tilt__light {
+  position: absolute; inset: 0; border-radius: inherit;
+  opacity: 0; transition: opacity 0.4s var(--ease-out); pointer-events: none;
+}
+.tilt:hover .tilt__edge, .tilt:hover .tilt__light { opacity: 1; }
+.tilt__body { position: relative; transform: translateZ(1px); }

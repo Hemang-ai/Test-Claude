@@ -1,0 +1,50 @@
+.speaking { overflow: hidden; }
+.speaking__intro { margin-top: 1.4rem; max-width: 56ch; }
+
+.marquee {
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee__track {
+  display: flex; width: max-content; padding: 1.1rem 0;
+  animation: marquee 48s linear infinite;
+}
+.marquee__track.is-static { animation: none; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track span {
+  display: inline-flex; align-items: center; gap: 2.2rem; padding-right: 2.2rem;
+  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.6rem); font-weight: 300; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2);
+  white-space: nowrap;
+}
+.marquee__track span i { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.talks { margin-top: clamp(2rem, 4vw, 3rem); display: grid; }
+.talk {
+  display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1.4fr) 120px; gap: 1.5rem; align-items: baseline;
+  padding: 1.1rem 0; border-bottom: 1px solid var(--line);
+  transition: background 0.3s;
+}
+.talk__when { color: var(--violet); font-variant-numeric: tabular-nums; font-weight: 400; }
+.talk__event { font-weight: 400; }
+.talk__title { color: var(--ink-2); font-size: 0.98rem; }
+.talk__kind { font-size: 0.85rem; text-align: right; }
+
+.speaking__foot { display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.speaking__foot strong { font-weight: 400; color: var(--ink); }
+.speaking__cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.3rem; border: 1px solid var(--line-2); border-radius: 999px;
+  letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.82rem;
+  transition: background 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+.speaking__cta:hover { background: rgba(123,63,228,0.18); border-color: var(--violet); box-shadow: 0 0 30px rgba(123,63,228,0.35); }
+
+@media (max-width: 760px) {
+  .talk { grid-template-columns: 56px minmax(0, 1fr); gap: 0.3rem 1rem; }
+  .talk__title { grid-column: 2; }
+  .talk__kind { grid-column: 2; text-align: left; }
+}

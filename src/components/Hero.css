@@ -1,0 +1,150 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: 6.5rem var(--gutter) 5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero__glow {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: -1;
+  filter: blur(90px);
+  background: radial-gradient(circle, var(--glow) 0%, rgba(123, 63, 228, 0) 65%);
+}
+.hero__glow--l { width: 46vmax; height: 46vmax; left: -22vmax; top: -18vmax; opacity: 0.9; }
+.hero__glow--r { width: 38vmax; height: 52vmax; right: -20vmax; top: 10vmax; opacity: 0.75; }
+.hero__glow--b { width: 60vmax; height: 26vmax; left: 20vmax; bottom: -20vmax; opacity: 0.55; }
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 560px) 1fr;
+  align-items: center;
+  gap: 0 clamp(0.5rem, 2vw, 2rem);
+  width: min(100%, var(--maxw));
+  margin-inline: auto;
+}
+.hero__left { justify-self: end; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+.hero__right { justify-self: start; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+
+.orb {
+  display: block; width: 68px; height: 68px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #f1e7ff, var(--violet) 55%, var(--violet-2));
+  box-shadow: 0 0 30px rgba(199,155,255,0.9), 0 0 90px rgba(123,63,228,0.7);
+  margin: 0 0 3.2rem 5.2rem;
+  animation: orbFloat 6s ease-in-out infinite;
+}
+@keyframes orbFloat { 0%,100% { transform: translate3d(0,0,0);} 50% { transform: translate3d(6px,-12px,0);} }
+
+.hero__hello { color: var(--violet); font-size: clamp(1.25rem, 1rem + 1.2vw, 1.85rem); font-weight: 400; margin-bottom: 0.35rem; }
+.hero__name {
+  display: flex; flex-direction: column;
+  font-size: var(--fs-name); font-weight: 300; line-height: 0.92;
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+.hero__name span { display: block; }
+
+.hero__ai { color: var(--violet); font-size: clamp(1.25rem, 1rem + 1.2vw, 1.85rem); font-weight: 400; margin: 0 0 0.2rem 0.35rem; }
+.hero__role {
+  position: relative;
+  font-size: var(--fs-role); font-weight: 300; line-height: 0.95;
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+.hero__role-main, .hero__echo { display: flex; flex-direction: column; }
+.hero__role-main { position: relative; }
+.hero__echo {
+  position: absolute; left: 0; top: 0;
+  color: var(--violet-2);
+  filter: blur(4px);
+  opacity: 0.55;
+  transform: translate3d(0, -0.42em, 0);
+  animation: echoDrift 5.5s var(--ease-in-out) infinite;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.05));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.05));
+}
+@keyframes echoDrift {
+  0%, 100% { transform: translate3d(0, -0.42em, 0); opacity: 0.55; filter: blur(4px); }
+  50% { transform: translate3d(-0.04em, -0.62em, 0); opacity: 0.3; filter: blur(7px); }
+}
+
+.hero__stage {
+  position: relative;
+  height: clamp(380px, 62vh, 620px);
+  width: 100%;
+}
+.hero__stage canvas { position: absolute; inset: 0; }
+
+.portrait {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  transition: opacity 0.9s var(--ease-out);
+}
+.hero__stage.is-3d .portrait { opacity: 0; }
+.portrait img {
+  width: min(58%, 300px); height: auto; border-radius: 50%; position: relative;
+  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6));
+}
+.portrait__halo {
+  position: absolute; width: 90%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(199,155,255,0.45) 0%, rgba(123,63,228,0.18) 40%, transparent 70%);
+  filter: blur(20px);
+}
+.portrait__glass {
+  position: absolute; width: min(74%, 380px); aspect-ratio: 0.83; border-radius: 28px;
+  background: linear-gradient(160deg, rgba(199,155,255,0.16), rgba(255,255,255,0.03) 45%, rgba(123,63,228,0.14));
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 30px 80px rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  transform: rotate(-4deg);
+}
+.portrait__ring {
+  position: absolute; width: min(70%, 360px); aspect-ratio: 1; border-radius: 50%;
+  border: 1px solid rgba(199,155,255,0.8);
+  box-shadow: 0 0 16px rgba(199,155,255,0.6);
+  transform: rotateX(62deg);
+  animation: ringSpin 14s linear infinite;
+}
+@keyframes ringSpin { to { transform: rotateX(62deg) rotate(360deg); } }
+
+.hero__rail {
+  position: absolute; left: var(--gutter); bottom: 2.6rem;
+  display: flex; flex-direction: column; gap: 1.6rem;
+}
+.hero__rail a { color: var(--ink); opacity: 0.9; transition: color 0.3s, transform 0.3s var(--ease-out); }
+.hero__rail a:hover { color: var(--violet); transform: translateY(-2px); }
+
+.hero__resume { position: absolute; right: var(--gutter); bottom: 2.6rem; }
+.hero__resume-link {
+  align-items: center; gap: 0.7rem;
+  letter-spacing: var(--track-wide); text-transform: uppercase; font-size: 1rem; color: var(--muted);
+  transition: color 0.3s;
+}
+.hero__resume-link:hover { color: var(--ink); }
+
+.hero__cue {
+  position: absolute; left: 50%; bottom: 2.2rem; transform: translateX(-50%);
+  width: 1px; height: 54px; background: var(--line);
+  overflow: hidden;
+}
+.hero__cue span {
+  position: absolute; left: 0; top: -50%; width: 100%; height: 50%;
+  background: var(--violet);
+  animation: cue 2.2s var(--ease-in-out) infinite;
+}
+@keyframes cue { 0% { top: -50%; } 100% { top: 110%; } }
+
+@media (max-width: 1100px) {
+  .hero__grid { grid-template-columns: 1fr minmax(260px, 420px) 1fr; }
+  .orb { margin-left: 2rem; width: 54px; height: 54px; }
+}
+@media (max-width: 900px) {
+  .hero { padding-top: 5.5rem; padding-bottom: 7rem; align-content: center; }
+  .hero__grid { grid-template-columns: 1fr; gap: 1.5rem 0; text-align: left; }
+  .hero__stage { order: -1; height: clamp(300px, 46vh, 440px); }
+  .hero__left, .hero__right { justify-self: stretch; }
+  .orb { position: absolute; right: 0; top: -1.5rem; margin: 0; width: 44px; height: 44px; }
+  .hero__echo { display: none; }
+  .hero__rail { flex-direction: row; bottom: 2rem; }
+  .hero__resume { bottom: 2rem; }
+  .hero__cue { display: none; }
+}

@@ -1,0 +1,49 @@
+.about { overflow: hidden; }
+.about__glow { width: 50vmax; height: 50vmax; right: -25vmax; top: -10vmax; opacity: 0.5; }
+.about__grid {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem); align-items: start;
+}
+.about__lead { margin-top: 2rem; }
+.about__p { color: var(--ink-2); margin-top: 1.4rem; max-width: 58ch; }
+.about__focus { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+.about__now { margin-top: 2rem; color: var(--violet-ink); font-weight: 400; font-size: 0.95rem; }
+
+.stats {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 0.6rem;
+}
+.stat {
+  background: var(--bg); padding: clamp(1.4rem, 2.6vw, 2.2rem) clamp(1.2rem, 2.2vw, 1.8rem);
+  display: flex; flex-direction: column; gap: 0.6rem;
+  position: relative; transition: background 0.5s var(--ease-out);
+}
+.stat::after {
+  content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s var(--ease-out);
+  background: radial-gradient(360px circle at 20% 0%, rgba(123,63,228,0.28), transparent 60%);
+  pointer-events: none;
+}
+.stat:hover::after { opacity: 1; }
+.stat__value {
+  font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem); font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.stat__label { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+
+.about__edu { margin-top: clamp(3rem, 6vw, 5rem); }
+.about__edu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; border-top: 1px solid var(--line); padding-top: 2.5rem; }
+.about__h3 { font-weight: 400; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--violet); margin-bottom: 1.1rem; }
+.about__row { display: grid; gap: 0.15rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+.about__row .muted { font-size: 0.88rem; }
+.about__row--single { padding: 0.6rem 0; }
+
+@media (max-width: 900px) {
+  .about__grid { grid-template-columns: 1fr; }
+  .about__edu-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .stats { grid-template-columns: 1fr; }
+}

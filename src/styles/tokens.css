@@ -1,0 +1,42 @@
+/* Design tokens — matched to the hinehal.com reference (black canvas, violet glow,
+   light-weight uppercase grotesk). Change values here to restyle the whole site. */
+:root {
+  --bg: #000000;
+  --bg-2: #07060a;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-2: rgba(199, 155, 255, 0.35);
+  --ink: #ffffff;
+  --ink-2: #c9c9d1;
+  --muted: #9a9aa3;
+  --muted-2: #6c6c78;
+  --violet: #c79bff;
+  --violet-2: #a76bff;
+  --violet-deep: #7b3fe4;
+  --violet-ink: #e6d4ff;
+  --glow: rgba(123, 63, 228, 0.55);
+  --glow-soft: rgba(123, 63, 228, 0.22);
+
+  --font: 'Archivo', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  --fs-nav: 0.8125rem;
+  --fs-body: 1.0625rem;
+  --fs-lead: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem);
+  --fs-h2: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);
+  --fs-name: clamp(2.75rem, 1.5rem + 5.5vw, 5.25rem);
+  --fs-role: clamp(2.25rem, 1.2rem + 4.5vw, 4.5rem);
+
+  --track-nav: 0.14em;
+  --track-wide: 0.32em;
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --section: clamp(5rem, 10vw, 9rem);
+  --maxw: 1320px;
+
+  --radius: 22px;
+  --radius-sm: 12px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}

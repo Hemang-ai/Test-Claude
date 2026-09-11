@@ -1,0 +1,21 @@
+.work { overflow: hidden; }
+.work__glow { width: 55vmax; height: 55vmax; left: -30vmax; bottom: -20vmax; opacity: 0.45; }
+.work__intro { margin-top: 1.4rem; max-width: 52ch; }
+.work__grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.6rem); margin-top: clamp(2.5rem, 5vw, 4rem);
+  perspective: 1200px;
+}
+.card { height: 100%; }
+.card .tilt__body { padding: clamp(1.4rem, 2.6vw, 2.2rem); display: flex; flex-direction: column; gap: 0.8rem; height: 100%; }
+.card__top { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.card__index { color: var(--violet); font-variant-numeric: tabular-nums; }
+.card__title { font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.75rem); font-weight: 400; line-height: 1.15; margin-top: 0.4rem; }
+.card__outcome { color: var(--violet-ink); font-weight: 400; font-size: 1rem; }
+.card__summary { color: var(--muted); font-size: 0.95rem; max-width: 52ch; }
+.card__tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.8rem; }
+.card__tools .tag { font-size: 0.76rem; padding: 0.22rem 0.6rem; }
+
+@media (max-width: 760px) {
+  .work__grid { grid-template-columns: 1fr; }
+}

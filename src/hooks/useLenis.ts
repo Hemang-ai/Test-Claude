@@ -9,7 +9,11 @@ export function scrollToHash(hash: string) {
   if (!el) return
   if (instance) instance.scrollTo(el, { offset: 0, duration: 1.4 })
   else el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  history.replaceState(null, '', hash)
+  try {
+    history.replaceState(null, '', hash)
+  } catch {
+    // Sandboxed embeds (e.g. hosted previews) may refuse URL changes; scrolling still works.
+  }
 }
 
 export function useLenis(enabled: boolean) {

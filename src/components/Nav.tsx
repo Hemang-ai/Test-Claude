@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
 import { useEffect, useState } from 'react'
+import { resumeUrl } from '../assets'
 import { identity, nav } from '../data/profile'
 import { scrollToHash } from '../hooks/useLenis'
 import { MenuIcon } from './Icons'
@@ -84,7 +85,7 @@ export function Nav() {
                 </motion.a>
               ))}
             </nav>
-            <a className="menu__resume" href={`${import.meta.env.BASE_URL}${identity.resumeFile}`} target="_blank" rel="noreferrer">
+            <a className="menu__resume" href={resumeUrl} target="_blank" rel="noreferrer">
               Resume
             </a>
           </motion.div>

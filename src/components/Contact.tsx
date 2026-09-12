@@ -1,10 +1,9 @@
+import { resumeUrl } from '../assets'
 import { footer, identity } from '../data/profile'
 import { DocIcon, LinkedInIcon, MailIcon, ScholarIcon } from './Icons'
 import { MagneticButton } from './MagneticButton'
 import { Reveal } from './Reveal'
 import './Contact.css'
-
-const base = import.meta.env.BASE_URL
 
 export function Contact() {
   const year = new Date().getFullYear()
@@ -39,7 +38,7 @@ export function Contact() {
               <ScholarIcon size={20} />
               <span>Google Scholar</span>
             </MagneticButton>
-            <MagneticButton href={`${base}${identity.resumeFile}`} target="_blank" rel="noreferrer" className="btn">
+            <MagneticButton href={resumeUrl} target="_blank" rel="noreferrer" className="btn">
               <DocIcon size={20} />
               <span>Resume</span>
             </MagneticButton>

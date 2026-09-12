@@ -15,9 +15,6 @@ export const identity = {
   linkedin: 'https://www.linkedin.com/in/hemang-up/',
   scholar: 'https://scholar.google.com/citations?user=3cdNYHQAAAAJ&hl=en',
   sessionize: 'https://sessionize.com/hemang-upadhyay/',
-  resumeFile: 'Hemang_Upadhyay_Resume.pdf',
-  headshot: 'hemang.png',
-  headshotJpg: 'hemang.jpg',
   currentRole: 'Senior Product Manager, D2C Digital Product, AI & Platform Modernization',
   currentCompany: 'LG Electronics USA',
 }

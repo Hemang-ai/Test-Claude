@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { lazy, Suspense, useCallback, useState } from 'react'
+import { headshotUrl, resumeUrl } from '../assets'
 import { identity } from '../data/profile'
 import { useWebGL } from '../hooks/useWebGL'
 import { DocIcon, LinkedInIcon, ScholarIcon } from './Icons'
@@ -8,7 +9,6 @@ import './Hero.css'
 
 const HeroScene = lazy(() => import('./HeroScene'))
 const ease = [0.22, 1, 0.36, 1] as const
-const base = import.meta.env.BASE_URL
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -50,7 +50,7 @@ export function Hero() {
           <div className="portrait" aria-hidden={ready}>
             <span className="portrait__halo" />
             <span className="portrait__glass" />
-            <img src={`${base}${identity.headshot}`} alt={`${identity.firstName} ${identity.lastName}`} width={800} height={800} />
+            <img src={headshotUrl} alt={`${identity.firstName} ${identity.lastName}`} width={800} height={800} />
             <span className="portrait__ring" />
           </div>
           {use3d && (
@@ -89,7 +89,7 @@ export function Hero() {
       </motion.div>
 
       <motion.div className="hero__resume" {...item(1.15)}>
-        <MagneticButton href={`${base}${identity.resumeFile}`} target="_blank" rel="noreferrer" className="hero__resume-link">
+        <MagneticButton href={resumeUrl} target="_blank" rel="noreferrer" className="hero__resume-link">
           <span>Resume</span>
           <DocIcon />
         </MagneticButton>

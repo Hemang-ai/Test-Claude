@@ -2,10 +2,10 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, Float, Lightformer, RoundedBox, Sparkles, useTexture } from '@react-three/drei'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { identity } from '../data/profile'
+import { headshotUrl } from '../assets'
 import { pointer } from '../hooks/usePointer'
 
-const PORTRAIT_URL = `${import.meta.env.BASE_URL}${identity.headshot}`
+const PORTRAIT_URL = headshotUrl
 
 function useGlowTexture() {
   return useMemo(() => {

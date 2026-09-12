@@ -13,6 +13,8 @@ Black-and-violet portfolio with a Three.js hero, smooth scrolling and scroll-dri
 
 ## Run locally
 
+Requires Node.js 20.19 or newer (22 recommended; see `.nvmrc`).
+
 ```bash
 npm install
 npm run dev        # http://localhost:5173
@@ -26,12 +28,7 @@ All copy lives in `src/data/profile.ts`: identity and links, about text, impact 
 
 Design tokens (colours, type scale, spacing, easing) live in `src/styles/tokens.css`.
 
-Assets in `public/`:
-
-- `hemang.png` / `hemang.jpg`: headshot
-- `Hemang_Upadhyay_Resume.pdf`: linked from the Resume buttons
-- `og.png`: social share image
-- `favicon.svg`
+Assets in `src/assets/` (processed by Vite): the headshot (`hemang.png`), the resume PDF linked from the Resume buttons, and the Archivo font. `public/` holds `og.png` (social share image) and `favicon.svg`.
 
 ## Deploy
 

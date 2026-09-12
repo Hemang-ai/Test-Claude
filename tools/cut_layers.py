@@ -106,7 +106,12 @@ def main() -> None:
         )
         print(f"{layer['name']}: box={box} pivot={layer['pivot']}")
 
-    runtime = {"image": [im.width, im.height], "height": rig.get("height", 4.2), "layers": runtime_layers}
+    runtime = {
+        "image": [im.width, im.height],
+        "height": rig.get("height", 4.2),
+        "floor": rig.get("floor", im.height),
+        "layers": runtime_layers,
+    }
     (out / "rig.json").write_text(json.dumps(runtime, indent=2))
     print("wrote", out / "rig.json")
 

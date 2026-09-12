@@ -88,7 +88,7 @@ export function Puppet() {
   const offset = (l: Layer): [number, number, number] => {
     const p = l.parent ? byName[l.parent] : null
     const [px, py] = l.pivot
-    const [qx, qy] = p ? p.pivot : [rig.image[0] / 2, rig.image[1] - 40]
+    const [qx, qy] = p ? p.pivot : [rig.image[0] / 2, rig.floor]
     return [(px - qx) * SCALE, -(py - qy) * SCALE, 0]
   }
 
@@ -132,11 +132,11 @@ export function Puppet() {
       let z = side * 0.03 + Math.sin(t * 1.4 + side) * 0.015
       let y = 0
       if (isReach) {
-        const lift = clamp(0.3 + (1 - py) * 0.4, 0.2, 1.05)
+        const lift = clamp(0.25 + (1 - py) * 0.32, 0.18, 0.82)
         z = side * lift
         y = -side * px * 0.3
       } else if (isWave) {
-        z = side * (1.55 + Math.sin(t * 11) * 0.28)
+        z = side * (2.55 + Math.sin(t * 11) * 0.22)
       }
       arm.rotation.z = damp(arm.rotation.z, z, isWave ? 12 : 5, dt)
       arm.rotation.y = damp(arm.rotation.y, y, 5, dt)
@@ -144,7 +144,7 @@ export function Puppet() {
 
     if (root.current) {
       const s = window.scrollY
-      const baseY = -rig.height / 2 + 0.1
+      const baseY = -rig.height / 2 + 0.38
       root.current.position.y = damp(root.current.position.y, baseY - s * 0.0022, 6, dt) + Math.sin(t * 1.4) * 0.006
       root.current.rotation.y = damp(root.current.rotation.y, s * 0.0015, 6, dt)
       const sc = clamp(1 - s * 0.00035, 0.6, 1)
@@ -153,7 +153,7 @@ export function Puppet() {
   })
 
   return (
-    <group ref={root} position={[0, -rig.height / 2 + 0.1, 0]}>
+    <group ref={root} position={[0, -rig.height / 2 + 0.38, 0]}>
       <mesh position={[0, 0.02, 0.05]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[2.8, 2.8]} />
         <meshBasicMaterial map={shadow} transparent depthWrite={false} />

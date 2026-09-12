@@ -4,3 +4,4 @@ dist
 *.local
 dist-artifact
 vite.artifact.config.ts
+*.tsbuildinfo

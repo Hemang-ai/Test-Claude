@@ -47,7 +47,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4, ease, delay: 0.3 }}
         >
-          <div className="portrait" aria-hidden={ready}>
+          <div className={`portrait ${use3d ? 'is-waiting' : ''}`} aria-hidden={ready}>
             <span className="portrait__halo" />
             <span className="portrait__glass" />
             <img src={headshotUrl} alt={`${identity.firstName} ${identity.lastName}`} width={800} height={800} />

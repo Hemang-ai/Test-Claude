@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { identity, media, talks } from '../data/profile'
 import { ArrowIcon } from './Icons'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import './Speaking.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -14,10 +15,8 @@ export function Speaking() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Speaking & media</p>
-          <h2 className="h2">
-            On stage about <em>agentic</em> commerce
-          </h2>
         </Reveal>
+        <SplitHeading text="On stage about agentic commerce" accent="agentic" />
         <Reveal delay={0.1}>
           <p className="speaking__intro muted">
             Keynotes, panels and talks on shipping non-deterministic AI inside large organizations, AI-native fraud detection, and the road from

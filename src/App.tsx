@@ -1,6 +1,8 @@
 import { useReducedMotion } from 'motion/react'
 import { About } from './components/About'
+import { Aurora } from './components/Aurora'
 import { Contact } from './components/Contact'
+import { Cursor } from './components/Cursor'
 import { Experience } from './components/Experience'
 import { Hero } from './components/Hero'
 import { Nav } from './components/Nav'
@@ -20,6 +22,8 @@ export default function App() {
       <a className="skip" href="#about">
         Skip to content
       </a>
+      <Aurora />
+      <Cursor />
       <Nav />
       <main id="main">
         <Hero />

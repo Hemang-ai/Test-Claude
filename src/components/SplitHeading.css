@@ -1,0 +1,4 @@
+.split { display: flex; flex-wrap: wrap; gap: 0 0.28em; text-wrap: balance; }
+.split__word { display: inline-block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.split__inner { display: inline-block; transform-origin: 0 100%; will-change: transform; }
+.split__inner.is-accent { color: var(--violet); }

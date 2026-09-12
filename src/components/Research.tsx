@@ -1,6 +1,7 @@
 import { identity, papers, recognition, researchThemes } from '../data/profile'
 import { ArrowIcon } from './Icons'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import { TiltCard } from './TiltCard'
 import './Research.css'
 
@@ -11,10 +12,8 @@ export function Research() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Research & recognition</p>
-          <h2 className="h2">
-            Applied AI, <em>peer</em> reviewed
-          </h2>
         </Reveal>
+        <SplitHeading text="Applied AI, peer reviewed" accent="peer" />
 
         <div className="research__grid">
           <div>

@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { work } from '../data/profile'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import { TiltCard } from './TiltCard'
 import './Work.css'
 
@@ -14,10 +15,8 @@ export function Work() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Selected work</p>
-          <h2 className="h2">
-            Outcomes, not <em>features</em>
-          </h2>
         </Reveal>
+        <SplitHeading text="Outcomes, not features" accent="features" />
         <Reveal delay={0.1}>
           <p className="work__intro muted">
             A few of the platforms and AI capabilities I have owned end to end, with the numbers they moved.

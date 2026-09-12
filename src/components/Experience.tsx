@@ -2,6 +2,7 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'mo
 import { useRef, useState } from 'react'
 import { experience } from '../data/profile'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import './Experience.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -21,10 +22,8 @@ export function Experience() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Experience</p>
-          <h2 className="h2">
-            Sixteen years, <em>three</em> industries
-          </h2>
         </Reveal>
+        <SplitHeading text="Sixteen years, three industries" accent="three" />
 
         <div className="timeline" ref={ref}>
           <div className="timeline__rail" aria-hidden>

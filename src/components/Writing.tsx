@@ -1,6 +1,7 @@
 import { articles } from '../data/profile'
 import { ArrowIcon } from './Icons'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import { TiltCard } from './TiltCard'
 import './Writing.css'
 
@@ -10,10 +11,8 @@ export function Writing() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Writing</p>
-          <h2 className="h2">
-            Notes from <em>inside</em> the platform
-          </h2>
         </Reveal>
+        <SplitHeading text="Notes from inside the platform" accent="inside" />
         <ul className="articles">
           {articles.map((a, i) => (
             <Reveal key={a.title} delay={0.06 * i}>

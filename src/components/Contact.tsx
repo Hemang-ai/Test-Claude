@@ -3,6 +3,7 @@ import { footer, identity } from '../data/profile'
 import { DocIcon, LinkedInIcon, MailIcon, ScholarIcon } from './Icons'
 import { MagneticButton } from './MagneticButton'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import './Contact.css'
 
 export function Contact() {
@@ -13,10 +14,8 @@ export function Contact() {
       <div className="wrap">
         <Reveal>
           <p className="kicker">Contact</p>
-          <h2 className="h2 contact__h2">
-            Let's <em>talk</em>
-          </h2>
         </Reveal>
+        <SplitHeading text="Let's talk" accent="talk" className="contact__h2" />
         <Reveal delay={0.1}>
           <p className="contact__p">
             Speaking invitations, podcast guest spots, research collaboration, or a product problem worth comparing notes on.

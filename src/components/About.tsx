@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { about, certifications, education, identity, stats } from '../data/profile'
+import { CountUp } from './CountUp'
 import { Reveal } from './Reveal'
+import { SplitHeading } from './SplitHeading'
 import './About.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -14,10 +16,8 @@ export function About() {
         <div className="about__intro">
           <Reveal>
             <p className="kicker">About</p>
-            <h2 className="h2">
-              Products that <em>ship</em>, and keep shipping
-            </h2>
           </Reveal>
+          <SplitHeading text="Products that ship, and keep shipping" accent="ship" />
           <Reveal delay={0.1}>
             <p className="lead about__lead">{about.lead}</p>
           </Reveal>
@@ -54,7 +54,9 @@ export function About() {
               viewport={{ once: true, margin: '-10% 0px' }}
               transition={{ duration: 0.9, ease, delay: 0.05 * i }}
             >
-              <span className="stat__value">{s.value}</span>
+              <span className="stat__value">
+                <CountUp value={s.value} />
+              </span>
               <span className="stat__label">{s.label}</span>
             </motion.li>
           ))}

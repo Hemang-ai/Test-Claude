@@ -3,7 +3,7 @@ import { Environment, Lightformer, Sparkles } from '@react-three/drei'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { pointer } from '../hooks/usePointer'
-import { Avatar } from './Avatar'
+import { Puppet } from './Puppet'
 
 function useGlowTexture() {
   return useMemo(() => {
@@ -77,7 +77,7 @@ function Scene({ onReady }: { onReady?: () => void }) {
       <Glow position={[0, 0.3, -2.2]} scale={5.5} opacity={0.45} />
       <Orb />
       <Suspense fallback={null}>
-        <Avatar />
+        <Puppet />
         <Ready onReady={onReady} />
       </Suspense>
     </>

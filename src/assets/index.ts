@@ -3,5 +3,3 @@ import headshotUrl from './hemang.png'
 import resumeUrl from './Hemang_Upadhyay_Resume.pdf'
 
 export { headshotUrl, resumeUrl }
-import faceUrl from './face.png'
-export { faceUrl }

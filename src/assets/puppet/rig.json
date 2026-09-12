@@ -1,0 +1,89 @@
+{
+  "image": [
+    1122,
+    1402
+  ],
+  "height": 4.2,
+  "layers": [
+    {
+      "name": "legs",
+      "file": "legs.png",
+      "box": [
+        368,
+        665,
+        374,
+        693
+      ],
+      "pivot": [
+        552,
+        1352
+      ],
+      "parent": null,
+      "z": 0
+    },
+    {
+      "name": "torso",
+      "file": "torso.png",
+      "box": [
+        394,
+        247,
+        326,
+        483
+      ],
+      "pivot": [
+        552,
+        700
+      ],
+      "parent": "legs",
+      "z": 1
+    },
+    {
+      "name": "armL",
+      "file": "armL.png",
+      "box": [
+        313,
+        276,
+        163,
+        444
+      ],
+      "pivot": [
+        402,
+        282
+      ],
+      "parent": "torso",
+      "z": 2
+    },
+    {
+      "name": "armR",
+      "file": "armR.png",
+      "box": [
+        639,
+        278,
+        149,
+        442
+      ],
+      "pivot": [
+        712,
+        282
+      ],
+      "parent": "torso",
+      "z": 2
+    },
+    {
+      "name": "head",
+      "file": "head.png",
+      "box": [
+        469,
+        21,
+        169,
+        259
+      ],
+      "pivot": [
+        552,
+        262
+      ],
+      "parent": "torso",
+      "z": 3
+    }
+  ]
+}

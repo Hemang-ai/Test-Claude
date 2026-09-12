@@ -7,7 +7,7 @@ Black-and-violet portfolio with a Three.js hero, smooth scrolling and scroll-dri
 
 - Vite + React + TypeScript
 - `motion` (Framer Motion) for page-load orchestration, scroll-linked reveals, magnetic buttons and 3D tilt cards
-- `three` + `@react-three/fiber` + `@react-three/drei` for the hero scene (glass card with the headshot, emissive orb, orbit rings, sparkles). The scene is lazy-loaded and falls back to a CSS glass card when WebGL is unavailable or the visitor prefers reduced motion.
+- `three` + `@react-three/fiber` + `@react-three/drei` for the hero scene: a cut-out puppet of Hemang built from his full-body illustration, plus an emissive orb and sparkles. The head turns and tilts toward the cursor, the nearer arm reaches for it, the other waves; the figure turns and parallaxes on scroll. The scene is lazy-loaded and falls back to a CSS portrait card when WebGL is unavailable or the visitor prefers reduced motion.
 - `lenis` for smooth scrolling (disabled under reduced motion)
 - Self-hosted Archivo variable font (`public/fonts`)
 
@@ -28,7 +28,18 @@ All copy lives in `src/data/profile.ts`: identity and links, about text, impact 
 
 Design tokens (colours, type scale, spacing, easing) live in `src/styles/tokens.css`.
 
-Assets in `src/assets/` (processed by Vite): the headshot (`hemang.png`), the resume PDF linked from the Resume buttons, and the Archivo font. `public/` holds `og.png` (social share image) and `favicon.svg`.
+Assets in `src/assets/` (processed by Vite): the headshot (`hemang.png`), the resume PDF linked from the Resume buttons, the Archivo font, and the puppet layers in `src/assets/puppet/`. `public/` holds `og.png` (social share image) and `favicon.svg`.
+
+### Regenerate the puppet from a new illustration
+
+The hero figure is cut from a single full-body illustration on a white background. `tools/rig.json` describes each layer (head, torso, arms, legs) as polygons in source-image pixels with a pivot point at the joint. To rebuild the layers:
+
+```bash
+pip install pillow
+python3 tools/cut_layers.py path/to/illustration.png tools/rig.json src/assets/puppet
+```
+
+If the new picture has a different pose or size, adjust the polygons and pivots in `tools/rig.json` first.
 
 ## Deploy
 

@@ -18,8 +18,9 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 
-def background_mask(im: Image.Image, tol: int = 18) -> Image.Image:
-    """Flood-fill near-white pixels connected to the border. Returns L mask: 255 = background."""
+def background_mask(im: Image.Image, tol: int = 18, sat: int = 10) -> Image.Image:
+    """Flood-fill light, unsaturated pixels connected to the border (the studio white and its
+    soft floor shadow). Returns an L mask where 255 = background."""
     rgb = im.convert("RGB")
     w, h = rgb.size
     px = rgb.load()
@@ -30,7 +31,7 @@ def background_mask(im: Image.Image, tol: int = 18) -> Image.Image:
 
     def is_bg(x: int, y: int) -> bool:
         r, g, b = px[x, y]
-        return min(r, g, b) >= 255 - tol and max(r, g, b) - min(r, g, b) <= 10
+        return min(r, g, b) >= 255 - tol and max(r, g, b) - min(r, g, b) <= sat
 
     for x in range(w):
         for y in (0, h - 1):
@@ -68,7 +69,7 @@ def main() -> None:
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    bg = background_mask(im, rig.get("bgTolerance", 18))
+    bg = background_mask(im, rig.get("bgTolerance", 18), rig.get("bgSaturation", 10))
     figure_alpha = Image.eval(bg, lambda v: 255 - v)
 
     runtime_layers = []

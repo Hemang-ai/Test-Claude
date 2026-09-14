@@ -1,0 +1,267 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SOI Threading Salon — premium ivory + gold design system
+ * Brand: ivory & cream backgrounds, soft black typography, gold accents,
+ * subtle blush/pink highlights. Salon-grade luxury feel.
+ */
+
+@theme inline {
+  --font-sans: Arial, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+  --font-display: Arial, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
+  --color-ivory: var(--ivory);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.04), 0 8px 24px -12px oklch(0 0 0 / 0.08);
+  --shadow-lift: 0 2px 4px oklch(0 0 0 / 0.05), 0 16px 40px -16px oklch(0.5 0.1 70 / 0.18);
+  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.12 80), oklch(0.88 0.09 85));
+  --gradient-cream: linear-gradient(180deg, oklch(0.985 0.012 85), oklch(0.965 0.018 80));
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* surfaces */
+  --ivory: oklch(0.985 0.012 85);
+  --cream: oklch(0.965 0.018 80);
+  --background: oklch(0.985 0.012 85);
+  --foreground: oklch(0.18 0.012 50);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.012 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.012 50);
+
+  /* brand: deep black-warm primary, gold accent */
+  --primary: oklch(0.22 0.012 60);
+  --primary-foreground: oklch(0.985 0.012 85);
+
+  --gold: oklch(0.72 0.13 78);
+  --gold-soft: oklch(0.86 0.08 82);
+  --blush: oklch(0.92 0.04 20);
+
+  --secondary: oklch(0.95 0.018 75);
+  --secondary-foreground: oklch(0.22 0.012 60);
+  --muted: oklch(0.955 0.015 80);
+  --muted-foreground: oklch(0.48 0.015 60);
+  --accent: oklch(0.92 0.05 80);
+  --accent-foreground: oklch(0.22 0.012 60);
+
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.985 0.012 85);
+
+  --border: oklch(0.9 0.015 80);
+  --input: oklch(0.92 0.015 80);
+  --ring: oklch(0.72 0.13 78);
+
+  --chart-1: oklch(0.72 0.13 78);
+  --chart-2: oklch(0.55 0.08 60);
+  --chart-3: oklch(0.85 0.06 20);
+  --chart-4: oklch(0.45 0.04 50);
+  --chart-5: oklch(0.65 0.1 100);
+
+  --sidebar: oklch(0.97 0.015 80);
+  --sidebar-foreground: oklch(0.22 0.012 60);
+  --sidebar-primary: oklch(0.22 0.012 60);
+  --sidebar-primary-foreground: oklch(0.985 0.012 85);
+  --sidebar-accent: oklch(0.93 0.04 80);
+  --sidebar-accent-foreground: oklch(0.22 0.012 60);
+  --sidebar-border: oklch(0.9 0.015 80);
+  --sidebar-ring: oklch(0.72 0.13 78);
+}
+
+.dark {
+  --background: oklch(0.18 0.01 60);
+  --foreground: oklch(0.97 0.012 80);
+  --card: oklch(0.22 0.01 60);
+  --card-foreground: oklch(0.97 0.012 80);
+  --popover: oklch(0.22 0.01 60);
+  --popover-foreground: oklch(0.97 0.012 80);
+  --primary: oklch(0.92 0.012 80);
+  --primary-foreground: oklch(0.22 0.01 60);
+  --secondary: oklch(0.28 0.012 60);
+  --secondary-foreground: oklch(0.97 0.012 80);
+  --muted: oklch(0.28 0.012 60);
+  --muted-foreground: oklch(0.7 0.015 70);
+  --accent: oklch(0.32 0.04 75);
+  --accent-foreground: oklch(0.97 0.012 80);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.13 78);
+  --sidebar: oklch(0.22 0.01 60);
+  --sidebar-foreground: oklch(0.97 0.012 80);
+  --sidebar-border: oklch(1 0 0 / 8%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); }
+  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .bg-gradient-cream { background-image: var(--gradient-cream); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
+  .border-gold { border-color: var(--gold); }
+  .ring-gold { --tw-ring-color: var(--gold); }
+  .tabular-nums { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; text-align: right; }
+  .stat-number { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+}
+
+/* Reports & receipts: Arial + tabular numerals everywhere numbers appear */
+table, .stat-number, .report-num, .kpi-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* 58mm thermal receipt — on-screen preview uses monospace; print rules below */
+.receipt-58mm {
+  font-family: "Courier New", "Menlo", "Consolas", monospace;
+  font-size: 12pt;
+  line-height: 1.25;
+  white-space: pre;
+  width: 58mm;
+  margin: 0 auto;
+  color: #000;
+  background: #fff;
+}
+.receipt-58mm .receipt-bus-name { font-size: 14pt; font-weight: 700; }
+.receipt-58mm .receipt-total { font-size: 14pt; font-weight: 700; margin-top: 2px; }
+.receipt-58mm .receipt-sep { letter-spacing: 0; }
+.receipt-58mm .receipt-footer { font-size: 10pt; font-style: italic; }
+
+/* ===== Receipt print (58mm thermal) — only when body has .printing-receipt ===== */
+@media print {
+  body.printing-receipt { background: #fff !important; }
+  body.printing-receipt * { visibility: hidden !important; }
+  body.printing-receipt #receipt-print,
+  body.printing-receipt #receipt-print * { visibility: visible !important; }
+  body.printing-receipt #receipt-print {
+    position: absolute;
+    top: 0; left: 0;
+    width: 58mm;
+    border: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}
+@page :first { /* placeholder so the rule above wins specificity for receipt */ }
+
+/* ===== Report / page print (default) — large, well-aligned, printer friendly ===== */
+@media print {
+  @page { size: Letter; margin: 14mm; }
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+  .no-print, .print\:hidden { display: none !important; }
+  .print-only { display: block !important; }
+
+  .print-doc { padding: 0 !important; max-width: none !important; }
+  .print-doc h1 { font-size: 20pt !important; margin: 0 0 4pt 0 !important; }
+  .print-doc h2 { font-size: 14pt !important; margin: 10pt 0 4pt !important; }
+  .print-doc .card,
+  .print-doc [class*="shadow"] {
+    box-shadow: none !important;
+    border: 1px solid #bbb !important;
+    background: #fff !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .print-doc table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  .print-doc thead { display: table-header-group; }
+  .print-doc th, .print-doc td {
+    padding: 6pt 8pt !important;
+    border-bottom: 1px solid #ccc !important;
+    color: #000 !important;
+  }
+  .print-doc th {
+    background: #f1f1f1 !important;
+    text-align: left;
+    font-size: 10pt !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #000 !important;
+  }
+  .print-doc tr { page-break-inside: avoid; }
+  .print-doc .text-gold { color: #8a6d1a !important; font-weight: 600 !important; }
+  .print-doc .text-muted-foreground { color: #333 !important; }
+  .print-doc .kpi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8pt !important;
+  }
+  .print-doc .kpi {
+    border: 1px solid #bbb;
+    padding: 8pt 10pt;
+    page-break-inside: avoid;
+  }
+  .print-doc .kpi-label {
+    font-size: 9pt !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #444 !important;
+    margin: 0 0 2pt !important;
+  }
+  .print-doc .kpi-value { font-size: 16pt !important; font-weight: 600 !important; margin: 0 !important; }
+}
+.print-only { display: none; }

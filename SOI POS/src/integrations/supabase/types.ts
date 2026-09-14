@@ -1,0 +1,1696 @@
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+
+export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "14.5"
+  }
+  public: {
+    Tables: {
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id: string | null
+          booking_source: string
+          cancelled_at: string | null
+          checked_in_at: string | null
+          completed_at: string | null
+          created_at: string
+          customer_email: string | null
+          customer_id: string | null
+          customer_name: string
+          customer_phone: string | null
+          duration_minutes: number
+          environment: string
+          external_booking_id: string | null
+          external_source: string | null
+          id: string
+          last_synced_at: string | null
+          no_show_at: string | null
+          notes: string | null
+          order_id: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          service_category_id: string | null
+          service_id: string | null
+          service_name: string | null
+          started_at: string | null
+          status: Database["public"]["Enums"]["appointment_status"]
+          sync_status: string | null
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name: string
+          customer_phone?: string | null
+          duration_minutes?: number
+          environment?: string
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_category_id?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name?: string
+          customer_phone?: string | null
+          duration_minutes?: number
+          environment?: string
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_category_id?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_service_category_id_fkey"
+            columns: ["service_category_id"]
+            isOneToOne: false
+            referencedRelation: "service_categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      appointments_backup: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id: string | null
+          booking_source: string
+          cancelled_at: string | null
+          checked_in_at: string | null
+          completed_at: string | null
+          created_at: string
+          customer_email: string | null
+          customer_id: string | null
+          customer_name: string
+          customer_phone: string | null
+          duration_minutes: number
+          external_booking_id: string | null
+          external_source: string | null
+          id: string
+          last_synced_at: string | null
+          no_show_at: string | null
+          notes: string | null
+          order_id: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          service_id: string | null
+          service_name: string | null
+          snapshot_at: string
+          snapshot_date: string
+          started_at: string | null
+          status: Database["public"]["Enums"]["appointment_status"]
+          sync_status: string | null
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name: string
+          customer_phone?: string | null
+          duration_minutes?: number
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          snapshot_at?: string
+          snapshot_date: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name?: string
+          customer_phone?: string | null
+          duration_minutes?: number
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          snapshot_at?: string
+          snapshot_date?: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      appointments_deleted: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id: string | null
+          booking_source: string
+          cancelled_at: string | null
+          checked_in_at: string | null
+          completed_at: string | null
+          created_at: string
+          customer_email: string | null
+          customer_id: string | null
+          customer_name: string
+          customer_phone: string | null
+          deleted_at: string
+          deleted_by: string | null
+          duration_minutes: number
+          external_booking_id: string | null
+          external_source: string | null
+          id: string
+          last_synced_at: string | null
+          no_show_at: string | null
+          notes: string | null
+          order_id: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          service_id: string | null
+          service_name: string | null
+          started_at: string | null
+          status: Database["public"]["Enums"]["appointment_status"]
+          sync_status: string | null
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name: string
+          customer_phone?: string | null
+          deleted_at?: string
+          deleted_by?: string | null
+          duration_minutes?: number
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          assigned_staff_id?: string | null
+          booking_source?: string
+          cancelled_at?: string | null
+          checked_in_at?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_id?: string | null
+          customer_name?: string
+          customer_phone?: string | null
+          deleted_at?: string
+          deleted_by?: string | null
+          duration_minutes?: number
+          external_booking_id?: string | null
+          external_source?: string | null
+          id?: string
+          last_synced_at?: string | null
+          no_show_at?: string | null
+          notes?: string | null
+          order_id?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          service_id?: string | null
+          service_name?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["appointment_status"]
+          sync_status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          entity_id: string | null
+          entity_type: string | null
+          id: string
+          metadata: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+          metadata?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+          metadata?: Json | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      business_settings: {
+        Row: {
+          address: string | null
+          business_name: string
+          cash_drawer_connection_type: string
+          cash_drawer_enabled: boolean
+          cash_drawer_printer_ip: string | null
+          cash_drawer_printer_port: number
+          created_at: string
+          currency: string
+          email: string | null
+          google_link: string | null
+          hours: Json | null
+          id: string
+          instagram: string | null
+          logo_url: string | null
+          override_pin_hash: string | null
+          override_pin_salt: string | null
+          phone: string | null
+          receipt_footer: string | null
+          refund_policy: string | null
+          tax_rate: number
+          timezone: string
+          tip_presets: number[]
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          address?: string | null
+          business_name: string
+          cash_drawer_connection_type?: string
+          cash_drawer_enabled?: boolean
+          cash_drawer_printer_ip?: string | null
+          cash_drawer_printer_port?: number
+          created_at?: string
+          currency?: string
+          email?: string | null
+          google_link?: string | null
+          hours?: Json | null
+          id?: string
+          instagram?: string | null
+          logo_url?: string | null
+          override_pin_hash?: string | null
+          override_pin_salt?: string | null
+          phone?: string | null
+          receipt_footer?: string | null
+          refund_policy?: string | null
+          tax_rate?: number
+          timezone?: string
+          tip_presets?: number[]
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          address?: string | null
+          business_name?: string
+          cash_drawer_connection_type?: string
+          cash_drawer_enabled?: boolean
+          cash_drawer_printer_ip?: string | null
+          cash_drawer_printer_port?: number
+          created_at?: string
+          currency?: string
+          email?: string | null
+          google_link?: string | null
+          hours?: Json | null
+          id?: string
+          instagram?: string | null
+          logo_url?: string | null
+          override_pin_hash?: string | null
+          override_pin_salt?: string | null
+          phone?: string | null
+          receipt_footer?: string | null
+          refund_policy?: string | null
+          tax_rate?: number
+          timezone?: string
+          tip_presets?: number[]
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
+      customers: {
+        Row: {
+          allergies: string | null
+          birthday: string | null
+          created_at: string
+          created_by: string | null
+          email: string | null
+          full_name: string
+          id: string
+          last_visit_at: string | null
+          marketing_opt_in: boolean
+          no_show_count: number
+          notes: string | null
+          phone: string | null
+          preferred_service_category_id: string | null
+          preferred_service_name: string | null
+          preferred_staff_id: string | null
+          total_spend: number
+          updated_at: string
+          visit_count: number
+        }
+        Insert: {
+          allergies?: string | null
+          birthday?: string | null
+          created_at?: string
+          created_by?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          last_visit_at?: string | null
+          marketing_opt_in?: boolean
+          no_show_count?: number
+          notes?: string | null
+          phone?: string | null
+          preferred_service_category_id?: string | null
+          preferred_service_name?: string | null
+          preferred_staff_id?: string | null
+          total_spend?: number
+          updated_at?: string
+          visit_count?: number
+        }
+        Update: {
+          allergies?: string | null
+          birthday?: string | null
+          created_at?: string
+          created_by?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          last_visit_at?: string | null
+          marketing_opt_in?: boolean
+          no_show_count?: number
+          notes?: string | null
+          phone?: string | null
+          preferred_service_category_id?: string | null
+          preferred_service_name?: string | null
+          preferred_staff_id?: string | null
+          total_spend?: number
+          updated_at?: string
+          visit_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customers_preferred_service_category_id_fkey"
+            columns: ["preferred_service_category_id"]
+            isOneToOne: false
+            referencedRelation: "service_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customers_deleted: {
+        Row: {
+          allergies: string | null
+          birthday: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string
+          deleted_by: string | null
+          email: string | null
+          full_name: string
+          id: string
+          last_visit_at: string | null
+          marketing_opt_in: boolean
+          no_show_count: number
+          notes: string | null
+          phone: string | null
+          preferred_staff_id: string | null
+          total_spend: number
+          updated_at: string
+          visit_count: number
+        }
+        Insert: {
+          allergies?: string | null
+          birthday?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string
+          deleted_by?: string | null
+          email?: string | null
+          full_name: string
+          id: string
+          last_visit_at?: string | null
+          marketing_opt_in?: boolean
+          no_show_count?: number
+          notes?: string | null
+          phone?: string | null
+          preferred_staff_id?: string | null
+          total_spend?: number
+          updated_at?: string
+          visit_count?: number
+        }
+        Update: {
+          allergies?: string | null
+          birthday?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string
+          deleted_by?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          last_visit_at?: string | null
+          marketing_opt_in?: boolean
+          no_show_count?: number
+          notes?: string | null
+          phone?: string | null
+          preferred_staff_id?: string | null
+          total_spend?: number
+          updated_at?: string
+          visit_count?: number
+        }
+        Relationships: []
+      }
+      daily_closeouts: {
+        Row: {
+          actual_cash: number
+          card_total: number
+          cash_difference: number | null
+          closed_at: string
+          closed_by: string | null
+          closeout_date: string
+          created_at: string
+          expected_cash: number
+          external_card_total: number
+          gift_card_total: number
+          id: string
+          net_sales: number
+          notes: string | null
+          refund_total: number
+          updated_at: string
+          zelle_total: number
+        }
+        Insert: {
+          actual_cash?: number
+          card_total?: number
+          cash_difference?: number | null
+          closed_at?: string
+          closed_by?: string | null
+          closeout_date: string
+          created_at?: string
+          expected_cash?: number
+          external_card_total?: number
+          gift_card_total?: number
+          id?: string
+          net_sales?: number
+          notes?: string | null
+          refund_total?: number
+          updated_at?: string
+          zelle_total?: number
+        }
+        Update: {
+          actual_cash?: number
+          card_total?: number
+          cash_difference?: number | null
+          closed_at?: string
+          closed_by?: string | null
+          closeout_date?: string
+          created_at?: string
+          expected_cash?: number
+          external_card_total?: number
+          gift_card_total?: number
+          id?: string
+          net_sales?: number
+          notes?: string | null
+          refund_total?: number
+          updated_at?: string
+          zelle_total?: number
+        }
+        Relationships: []
+      }
+      gift_cards: {
+        Row: {
+          amount: number
+          balance: number
+          buyer_name: string | null
+          code: string
+          created_at: string
+          created_by: string | null
+          id: string
+          order_id: string | null
+          recipient_name: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          balance?: number
+          buyer_name?: string | null
+          code: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          order_id?: string | null
+          recipient_name?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          balance?: number
+          buyer_name?: string | null
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          order_id?: string | null
+          recipient_name?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      loyalty_accounts: {
+        Row: {
+          created_at: string
+          customer_id: string
+          eyebrow_threading_count: number
+          free_eyebrow_credits: number
+          id: string
+          lifetime_points: number
+          points_balance: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id: string
+          eyebrow_threading_count?: number
+          free_eyebrow_credits?: number
+          id?: string
+          lifetime_points?: number
+          points_balance?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string
+          eyebrow_threading_count?: number
+          free_eyebrow_credits?: number
+          id?: string
+          lifetime_points?: number
+          points_balance?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      loyalty_transactions: {
+        Row: {
+          created_at: string
+          customer_id: string
+          free_credits_delta: number
+          id: string
+          order_id: string | null
+          points_delta: number
+          reason: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id: string
+          free_credits_delta?: number
+          id?: string
+          order_id?: string | null
+          points_delta?: number
+          reason: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string
+          free_credits_delta?: number
+          id?: string
+          order_id?: string | null
+          points_delta?: number
+          reason?: string
+        }
+        Relationships: []
+      }
+      memberships: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          customer_id: string | null
+          customer_name: string
+          expiration_date: string | null
+          id: string
+          membership_type: string
+          order_id: string | null
+          price: number
+          start_date: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          customer_id?: string | null
+          customer_name: string
+          expiration_date?: string | null
+          id?: string
+          membership_type: string
+          order_id?: string | null
+          price: number
+          start_date?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          customer_id?: string | null
+          customer_name?: string
+          expiration_date?: string | null
+          id?: string
+          membership_type?: string
+          order_id?: string | null
+          price?: number
+          start_date?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      order_items: {
+        Row: {
+          created_at: string
+          discount: number
+          id: string
+          item_type: string
+          notes: string | null
+          order_id: string
+          quantity: number
+          service_id: string | null
+          service_name: string
+          staff_id: string | null
+          taxable: boolean
+          unit_price: number
+        }
+        Insert: {
+          created_at?: string
+          discount?: number
+          id?: string
+          item_type?: string
+          notes?: string | null
+          order_id: string
+          quantity?: number
+          service_id?: string | null
+          service_name: string
+          staff_id?: string | null
+          taxable?: boolean
+          unit_price: number
+        }
+        Update: {
+          created_at?: string
+          discount?: number
+          id?: string
+          item_type?: string
+          notes?: string | null
+          order_id?: string
+          quantity?: number
+          service_id?: string | null
+          service_name?: string
+          staff_id?: string | null
+          taxable?: boolean
+          unit_price?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          cashier_id: string | null
+          completed_at: string | null
+          created_at: string
+          customer_id: string | null
+          discount_total: number
+          id: string
+          notes: string | null
+          order_number: number
+          status: Database["public"]["Enums"]["order_status"]
+          subtotal: number
+          tax_total: number
+          tip_total: number
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          cashier_id?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          discount_total?: number
+          id?: string
+          notes?: string | null
+          order_number?: number
+          status?: Database["public"]["Enums"]["order_status"]
+          subtotal?: number
+          tax_total?: number
+          tip_total?: number
+          total?: number
+          updated_at?: string
+        }
+        Update: {
+          cashier_id?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          discount_total?: number
+          id?: string
+          notes?: string | null
+          order_number?: number
+          status?: Database["public"]["Enums"]["order_status"]
+          subtotal?: number
+          tax_total?: number
+          tip_total?: number
+          total?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders_backup: {
+        Row: {
+          cashier_id: string | null
+          completed_at: string | null
+          created_at: string
+          customer_id: string | null
+          discount_total: number
+          id: string
+          notes: string | null
+          order_number: number
+          snapshot_at: string
+          snapshot_date: string
+          status: Database["public"]["Enums"]["order_status"]
+          subtotal: number
+          tax_total: number
+          tip_total: number
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          cashier_id?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          discount_total?: number
+          id?: string
+          notes?: string | null
+          order_number?: number
+          snapshot_at?: string
+          snapshot_date: string
+          status?: Database["public"]["Enums"]["order_status"]
+          subtotal?: number
+          tax_total?: number
+          tip_total?: number
+          total?: number
+          updated_at?: string
+        }
+        Update: {
+          cashier_id?: string | null
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          discount_total?: number
+          id?: string
+          notes?: string | null
+          order_number?: number
+          snapshot_at?: string
+          snapshot_date?: string
+          status?: Database["public"]["Enums"]["order_status"]
+          subtotal?: number
+          tax_total?: number
+          tip_total?: number
+          total?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount: number
+          card_brand: string | null
+          card_funding: string | null
+          card_last4: string | null
+          cash_drawer_status: string
+          charge_id: string | null
+          created_at: string
+          created_by: string | null
+          external_reference: string | null
+          id: string
+          method: Database["public"]["Enums"]["payment_method"]
+          order_id: string
+          payment_channel: string | null
+          payment_intent_id: string | null
+          payment_method: string | null
+          provider: string | null
+          refund_amount: number
+          status: Database["public"]["Enums"]["payment_status"]
+          tip_amount: number
+          zelle_note: string | null
+          zelle_reference: string | null
+          zelle_sender: string | null
+        }
+        Insert: {
+          amount: number
+          card_brand?: string | null
+          card_funding?: string | null
+          card_last4?: string | null
+          cash_drawer_status?: string
+          charge_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          external_reference?: string | null
+          id?: string
+          method: Database["public"]["Enums"]["payment_method"]
+          order_id: string
+          payment_channel?: string | null
+          payment_intent_id?: string | null
+          payment_method?: string | null
+          provider?: string | null
+          refund_amount?: number
+          status?: Database["public"]["Enums"]["payment_status"]
+          tip_amount?: number
+          zelle_note?: string | null
+          zelle_reference?: string | null
+          zelle_sender?: string | null
+        }
+        Update: {
+          amount?: number
+          card_brand?: string | null
+          card_funding?: string | null
+          card_last4?: string | null
+          cash_drawer_status?: string
+          charge_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          external_reference?: string | null
+          id?: string
+          method?: Database["public"]["Enums"]["payment_method"]
+          order_id?: string
+          payment_channel?: string | null
+          payment_intent_id?: string | null
+          payment_method?: string | null
+          provider?: string | null
+          refund_amount?: number
+          status?: Database["public"]["Enums"]["payment_status"]
+          tip_amount?: number
+          zelle_note?: string | null
+          zelle_reference?: string | null
+          zelle_sender?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payments_backup: {
+        Row: {
+          amount: number
+          card_brand: string | null
+          card_funding: string | null
+          card_last4: string | null
+          cash_drawer_status: string
+          charge_id: string | null
+          created_at: string
+          created_by: string | null
+          external_reference: string | null
+          id: string
+          method: Database["public"]["Enums"]["payment_method"]
+          order_id: string
+          payment_channel: string | null
+          payment_intent_id: string | null
+          payment_method: string | null
+          provider: string | null
+          refund_amount: number
+          snapshot_at: string
+          snapshot_date: string
+          status: Database["public"]["Enums"]["payment_status"]
+          tip_amount: number
+          zelle_note: string | null
+          zelle_reference: string | null
+          zelle_sender: string | null
+        }
+        Insert: {
+          amount: number
+          card_brand?: string | null
+          card_funding?: string | null
+          card_last4?: string | null
+          cash_drawer_status?: string
+          charge_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          external_reference?: string | null
+          id?: string
+          method: Database["public"]["Enums"]["payment_method"]
+          order_id: string
+          payment_channel?: string | null
+          payment_intent_id?: string | null
+          payment_method?: string | null
+          provider?: string | null
+          refund_amount?: number
+          snapshot_at?: string
+          snapshot_date: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          tip_amount?: number
+          zelle_note?: string | null
+          zelle_reference?: string | null
+          zelle_sender?: string | null
+        }
+        Update: {
+          amount?: number
+          card_brand?: string | null
+          card_funding?: string | null
+          card_last4?: string | null
+          cash_drawer_status?: string
+          charge_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          external_reference?: string | null
+          id?: string
+          method?: Database["public"]["Enums"]["payment_method"]
+          order_id?: string
+          payment_channel?: string | null
+          payment_intent_id?: string | null
+          payment_method?: string | null
+          provider?: string | null
+          refund_amount?: number
+          snapshot_at?: string
+          snapshot_date?: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          tip_amount?: number
+          zelle_note?: string | null
+          zelle_reference?: string | null
+          zelle_sender?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          active: boolean
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      role_permissions: {
+        Row: {
+          allowed: boolean
+          id: string
+          permission_key: string
+          role: Database["public"]["Enums"]["app_role"]
+          updated_at: string
+        }
+        Insert: {
+          allowed?: boolean
+          id?: string
+          permission_key: string
+          role: Database["public"]["Enums"]["app_role"]
+          updated_at?: string
+        }
+        Update: {
+          allowed?: boolean
+          id?: string
+          permission_key?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      service_categories: {
+        Row: {
+          active: boolean
+          created_at: string
+          icon: string | null
+          id: string
+          name: string
+          slug: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          icon?: string | null
+          id?: string
+          name: string
+          slug: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          icon?: string | null
+          id?: string
+          name?: string
+          slug?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          active: boolean
+          category_id: string
+          commission_eligible: boolean
+          created_at: string
+          description: string | null
+          duration_minutes: number | null
+          id: string
+          image_url: string | null
+          is_variable_price: boolean
+          name: string
+          price: number
+          price_label: string | null
+          sort_order: number
+          source: string
+          starts_at: boolean
+          taxable: boolean
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          category_id: string
+          commission_eligible?: boolean
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          image_url?: string | null
+          is_variable_price?: boolean
+          name: string
+          price?: number
+          price_label?: string | null
+          sort_order?: number
+          source?: string
+          starts_at?: boolean
+          taxable?: boolean
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          category_id?: string
+          commission_eligible?: boolean
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          image_url?: string | null
+          is_variable_price?: boolean
+          name?: string
+          price?: number
+          price_label?: string | null
+          sort_order?: number
+          source?: string
+          starts_at?: boolean
+          taxable?: boolean
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "services_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "service_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      services_deleted: {
+        Row: {
+          active: boolean
+          category_id: string
+          commission_eligible: boolean
+          created_at: string
+          deleted_at: string
+          deleted_by: string | null
+          description: string | null
+          duration_minutes: number | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number
+          sort_order: number
+          starts_at: boolean
+          taxable: boolean
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          category_id: string
+          commission_eligible?: boolean
+          created_at?: string
+          deleted_at?: string
+          deleted_by?: string | null
+          description?: string | null
+          duration_minutes?: number | null
+          id: string
+          image_url?: string | null
+          name: string
+          price?: number
+          sort_order?: number
+          starts_at?: boolean
+          taxable?: boolean
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          category_id?: string
+          commission_eligible?: boolean
+          created_at?: string
+          deleted_at?: string
+          deleted_by?: string | null
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number
+          sort_order?: number
+          starts_at?: boolean
+          taxable?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      worker_pins: {
+        Row: {
+          active: boolean
+          created_at: string
+          display_name: string | null
+          pin_hash: string
+          pin_salt: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          display_name?: string | null
+          pin_hash: string
+          pin_salt: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          display_name?: string | null
+          pin_hash?: string
+          pin_salt?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      worker_shifts: {
+        Row: {
+          admin_notes: string | null
+          clock_in_at: string
+          clock_out_at: string | null
+          created_at: string
+          id: string
+          is_adjusted: boolean
+          shift_date: string
+          status: string
+          total_hours: number | null
+          updated_at: string
+          worker_id: string
+          worker_name: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          clock_in_at?: string
+          clock_out_at?: string | null
+          created_at?: string
+          id?: string
+          is_adjusted?: boolean
+          shift_date?: string
+          status?: string
+          total_hours?: number | null
+          updated_at?: string
+          worker_id: string
+          worker_name?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          clock_in_at?: string
+          clock_out_at?: string | null
+          created_at?: string
+          id?: string
+          is_adjusted?: boolean
+          shift_date?: string
+          status?: string
+          total_hours?: number | null
+          updated_at?: string
+          worker_id?: string
+          worker_name?: string | null
+        }
+        Relationships: []
+      }
+    }
+    Views: {
+      workers_public: {
+        Row: {
+          active: boolean | null
+          display_name: string | null
+          id: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          display_name?: never
+          id?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          display_name?: never
+          id?: string | null
+        }
+        Relationships: []
+      }
+    }
+    Functions: {
+      hard_delete_customer: { Args: { _id: string }; Returns: undefined }
+      hard_delete_service: { Args: { _id: string }; Returns: undefined }
+      has_any_role: {
+        Args: {
+          _roles: Database["public"]["Enums"]["app_role"][]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      reset_services_to_official_menu: { Args: never; Returns: undefined }
+      restore_appointment: { Args: { _id: string }; Returns: undefined }
+      restore_customer: { Args: { _id: string }; Returns: undefined }
+      restore_service: { Args: { _id: string }; Returns: undefined }
+      run_daily_backups: { Args: never; Returns: undefined }
+      soft_delete_appointment: { Args: { _id: string }; Returns: undefined }
+      soft_delete_customer: { Args: { _id: string }; Returns: undefined }
+      soft_delete_service: { Args: { _id: string }; Returns: undefined }
+      verify_worker_pin: {
+        Args: { _pin: string; _user_id: string }
+        Returns: boolean
+      }
+    }
+    Enums: {
+      app_role: "super_admin" | "admin" | "manager" | "cashier" | "staff"
+      appointment_status:
+        | "new"
+        | "confirmed"
+        | "checked_in"
+        | "waiting"
+        | "in_service"
+        | "completed"
+        | "cancelled"
+        | "no_show"
+      order_status:
+        | "open"
+        | "completed"
+        | "voided"
+        | "refunded"
+        | "partially_refunded"
+        | "awaiting_customer"
+        | "awaiting_confirmation"
+      payment_method:
+        | "cash"
+        | "card"
+        | "gift_card"
+        | "other"
+        | "split"
+        | "zelle"
+        | "external_card"
+      payment_status:
+        | "pending"
+        | "processing"
+        | "succeeded"
+        | "failed"
+        | "cancelled"
+        | "refunded"
+        | "partially_refunded"
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
+}
+
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
+
+export type Tables<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R
+      }
+      ? R
+      : never
+    : never
+
+export type TablesInsert<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I
+      }
+      ? I
+      : never
+    : never
+
+export type TablesUpdate<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U
+      }
+      ? U
+      : never
+    : never
+
+export type Enums<
+  DefaultSchemaEnumNameOrOptions extends
+    | keyof DefaultSchema["Enums"]
+    | { schema: keyof DatabaseWithoutInternals },
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof DatabaseWithoutInternals },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never
+
+export const Constants = {
+  public: {
+    Enums: {
+      app_role: ["super_admin", "admin", "manager", "cashier", "staff"],
+      appointment_status: [
+        "new",
+        "confirmed",
+        "checked_in",
+        "waiting",
+        "in_service",
+        "completed",
+        "cancelled",
+        "no_show",
+      ],
+      order_status: [
+        "open",
+        "completed",
+        "voided",
+        "refunded",
+        "partially_refunded",
+        "awaiting_customer",
+        "awaiting_confirmation",
+      ],
+      payment_method: [
+        "cash",
+        "card",
+        "gift_card",
+        "other",
+        "split",
+        "zelle",
+        "external_card",
+      ],
+      payment_status: [
+        "pending",
+        "processing",
+        "succeeded",
+        "failed",
+        "cancelled",
+        "refunded",
+        "partially_refunded",
+      ],
+    },
+  },
+} as const
